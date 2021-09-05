@@ -18,10 +18,12 @@ export const manageRoles = async (
     old.roles.premiumSubscriberRole &&
     !newMember.roles.premiumSubscriberRole
   ) {
+    console.log(`Saw ${old.user?.username} has stopped boosting!`);
     for (const roleId of colourRoles) {
       const target = newMember.roles.cache.find((role) => role.id === roleId);
       if (target) {
         await newMember.roles.remove(target);
+        console.log(`Removed ${target.name} from them.`);
       }
     }
   }
