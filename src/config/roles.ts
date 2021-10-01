@@ -8,3 +8,5 @@ export const colourRoles = [
   "883284117343584298",
   "883284381937065984",
 ];
+
+export const boosterRole = "712431541531181177";
