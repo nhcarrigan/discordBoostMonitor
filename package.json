@@ -1,6 +1,6 @@
 {
   "name": "oogie-woogie-boostie-woostie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A bot to remove booster perks when someone stops boosting.",
   "main": "prod/index.js",
   "scripts": {
