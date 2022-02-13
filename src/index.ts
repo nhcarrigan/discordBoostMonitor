@@ -1,16 +1,40 @@
-import { Client } from "discord.js";
+import { RewriteFrames } from "@sentry/integrations";
+import * as Sentry from "@sentry/node";
+import { Client, WebhookClient } from "discord.js";
 
 import { manageRoles } from "./modules/manageRoles";
+import { errorHandler } from "./utils/errorHandler";
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  tracesSampleRate: 1.0,
+  integrations: [
+    new RewriteFrames({
+      root: global.__dirname,
+    }),
+  ],
+});
 
 (async () => {
-  const bot = new Client({ intents: ["GUILDS", "GUILD_MEMBERS"] });
+  try {
+    const bot = new Client({ intents: ["GUILDS", "GUILD_MEMBERS"] });
 
-  bot.on("ready", () => console.log("It lives!"));
+    bot.on("ready", async () => {
+      const hook = new WebhookClient({ url: process.env.DEBUG_HOOK as string });
+      await hook.send("Oogie boogie boostie woostie online!");
 
-  bot.on(
-    "guildMemberUpdate",
-    async (oldMember, newMember) => await manageRoles(oldMember, newMember)
-  );
+      const guild = bot.guilds.cache.map((el) => el)[0];
+      const members = await guild.members.fetch();
+      await hook.send(`Loaded ${members.size} members from ${guild.name}`);
+    });
 
-  await bot.login(process.env.DISCORD_TOKEN);
+    bot.on(
+      "guildMemberUpdate",
+      async (oldMember, newMember) => await manageRoles(oldMember, newMember)
+    );
+
+    await bot.login(process.env.DISCORD_TOKEN);
+  } catch (err) {
+    await errorHandler("index", err);
+  }
 })();
