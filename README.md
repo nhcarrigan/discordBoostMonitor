@@ -1,10 +1,10 @@
-# Project Name
+# Discord Boost Monitor
 
-Project Description
+A bot to remove special roles from people when they stop boosting a server.
 
 ## Live Version
 
-This page is not yet deployed.
+This page is not yet deployed. Want to [run it yourself?](https://docs.nhcarrigan.com/#/discord-boost-monitor/usage)
 
 <!--This page is currently deployed. [View the live website.]()-->
 
@@ -32,4 +32,4 @@ The full license terms may be viewed in the [LICENSE.md file](./LICENSE.md)
 
 ## Contact
 
-We may be contacted through our [Chat Server](http://chat.nhcarrigan.com) or via [email form](https://contact.nhcarrigan.com).
+We may be contacted through our [Chat Server](http://chat.nhcarrigan.com) or via `contact@nhcarrigan.com`.
