@@ -28,10 +28,9 @@ Sentry.init({
       await hook.send(`Loaded ${members.size} members from ${guild.name}`);
     });
 
-    bot.on(
-      "guildMemberUpdate",
-      async (oldMember, newMember) => await manageRoles(oldMember, newMember)
-    );
+    bot.on("guildMemberUpdate", async (_oldMember, newMember) => {
+      await manageRoles(newMember);
+    });
 
     await bot.login(process.env.DISCORD_TOKEN);
   } catch (err) {
