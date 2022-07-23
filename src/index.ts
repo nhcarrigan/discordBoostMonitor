@@ -1,6 +1,6 @@
 import { RewriteFrames } from "@sentry/integrations";
 import * as Sentry from "@sentry/node";
-import { Client, WebhookClient } from "discord.js";
+import { Client, GatewayIntentBits, WebhookClient } from "discord.js";
 
 import { manageRoles } from "./modules/manageRoles";
 import { errorHandler } from "./utils/errorHandler";
@@ -17,7 +17,9 @@ Sentry.init({
 
 (async () => {
   try {
-    const bot = new Client({ intents: ["GUILDS", "GUILD_MEMBERS"] });
+    const bot = new Client({
+      intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
+    });
 
     bot.on("ready", async () => {
       const hook = new WebhookClient({ url: process.env.DEBUG_HOOK as string });
