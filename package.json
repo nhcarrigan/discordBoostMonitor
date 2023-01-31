@@ -39,7 +39,7 @@
     "eslint-plugin-jsdoc": "39.7.4",
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.8.3",
-    "typescript": "4.9.4"
+    "typescript": "4.9.5"
   },
   "dependencies": {
     "@sentry/integrations": "^7.0.0",
