@@ -17,7 +17,6 @@ export const manageRoles = async (newMember: GuildMember): Promise<void> => {
         const target = newMember.roles.cache.find((role) => role.id === roleId);
         if (target) {
           await newMember.roles.remove(target);
-          console.log(`Removed ${target.name} from ${newMember.user.tag}`);
         }
       }
     }
