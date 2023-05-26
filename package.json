@@ -43,6 +43,6 @@
     "@sentry/node": "7.53.1",
     "discord.js": "14.11.0",
     "dotenv": "16.0.3",
-    "winston": "3.8.2"
+    "winston": "3.9.0"
   }
 }
