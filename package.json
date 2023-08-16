@@ -41,7 +41,7 @@
   "dependencies": {
     "@sentry/integrations": "7.60.1",
     "@sentry/node": "7.60.1",
-    "discord.js": "14.11.0",
+    "discord.js": "14.12.1",
     "dotenv": "16.3.1",
     "winston": "3.10.0"
   }
