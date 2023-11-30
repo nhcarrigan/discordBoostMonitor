@@ -39,8 +39,8 @@
     "typescript": "5.3.2"
   },
   "dependencies": {
-    "@sentry/integrations": "7.83.0",
-    "@sentry/node": "7.83.0",
+    "@sentry/integrations": "7.84.0",
+    "@sentry/node": "7.84.0",
     "discord.js": "14.14.1",
     "dotenv": "16.3.1",
     "winston": "3.11.0"
