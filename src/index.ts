@@ -23,11 +23,21 @@ Sentry.init({
 
     bot.on("ready", async () => {
       const hook = new WebhookClient({ url: process.env.DEBUG_HOOK as string });
-      await hook.send("Oogie boogie boostie woostie online!");
+      await hook.send({
+        content: "Oogie boogie boostie woostie online!",
+        username: "Boost Monitor",
+        avatarURL:
+          "https://cdn.nhcarrigan.com/avatars/nhcarrigan.png"
+      });
 
       const guild = bot.guilds.cache.map((el) => el)[0];
       const members = await guild.members.fetch();
-      await hook.send(`Loaded ${members.size} members from ${guild.name}`);
+      await hook.send({
+        content: `Loaded ${members.size} members from ${guild.name}`,
+        username: "Boost Monitor",
+        avatarURL:
+          "https://cdn.nhcarrigan.com/avatars/nhcarrigan.png"
+      });
     });
 
     bot.on("guildMemberUpdate", async (_oldMember, newMember) => {
