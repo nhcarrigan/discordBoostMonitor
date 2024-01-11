@@ -26,8 +26,7 @@ Sentry.init({
       await hook.send({
         content: "Oogie boogie boostie woostie online!",
         username: "Boost Monitor",
-        avatarURL:
-          "https://cdn.nhcarrigan.com/avatars/nhcarrigan.png"
+        avatarURL: "https://cdn.nhcarrigan.com/avatars/nhcarrigan.png"
       });
 
       const guild = bot.guilds.cache.map((el) => el)[0];
@@ -35,8 +34,7 @@ Sentry.init({
       await hook.send({
         content: `Loaded ${members.size} members from ${guild.name}`,
         username: "Boost Monitor",
-        avatarURL:
-          "https://cdn.nhcarrigan.com/avatars/nhcarrigan.png"
+        avatarURL: "https://cdn.nhcarrigan.com/avatars/nhcarrigan.png"
       });
     });
 
